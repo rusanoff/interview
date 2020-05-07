@@ -1,19 +1,11 @@
-export const fib = n => n <= 1 ? n : fib(n - 1) + fib(n - 2);
-
-export const fibWithoutRecursion = (n) => {
-  if (!n) {
-    return n;
-  }
-
-  let prevNumBeforeLast = 1;
+export const fib = (n) => {
+  let prevNumBeforeLast = 0;
   let lastNum = 1;
 
-  for (let i = 3; i <= n; i++) {
-    const nextNum = prevNumBeforeLast + lastNum;
-
-    prevNumBeforeLast = lastNum;
-    lastNum = nextNum;
+  for (let i = 0; i < n; i++) {
+    lastNum += prevNumBeforeLast;
+    prevNumBeforeLast = lastNum - prevNumBeforeLast;
   }
 
-  return lastNum;
+  return prevNumBeforeLast;
 };
