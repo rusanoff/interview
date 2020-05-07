@@ -1,0 +1,43 @@
+{
+  "name": "interview-tasks",
+  "version": "1.0.0",
+  "description": "JS tasks from interviews",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rusanoff/interview-tasks.git"
+  },
+  "author": "Andrew Rusanov",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rusanoff/interview-tasks/issues"
+  },
+  "homepage": "https://github.com/rusanoff/interview-tasks#readme",
+  "devDependencies": {
+    "@babel/core": "^7.9.6",
+    "@babel/preset-env": "^7.9.6",
+    "babel-jest": "^26.0.1",
+    "jest": "^26.0.1"
+  },
+  "babel": {
+    "presets": [
+      [
+        "@babel/preset-env",
+        {
+          "targets": {
+            "node": "current"
+          }
+        }
+      ]
+    ],
+    "plugins": []
+  },
+  "jest": {
+    "verbose": true,
+    "collectCoverage": true,
+    "coverageReporters": ["json", "html"]
+  }
+}
