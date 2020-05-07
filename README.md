@@ -74,3 +74,33 @@ const lodashGetAnalog = (obj, str, defaultValue) => {
 
 ***
 
+*Write a function to validate braces*
+
+```javascript
+const validateBraces = (str) => {
+  if (str.length % 2) {
+    return false;
+  }
+
+  const arr = [...str];
+
+  return !arr.slice(0, arr.length / 2).find((x, i) => {
+    const y = arr.length - 1 - i;
+
+    return x + arr[y] !== '()' && x + arr[y] !== '[]' && x + arr[y] !== '{}';
+  });
+};
+```
+
+***
+
+*How to make this code possible?*
+
+`(5).plus(2).plus(1); // 8`
+
+```javascript
+Number.prototype.plus = function(num = 1) {
+  return this + num;
+};
+```
+
