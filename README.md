@@ -17,7 +17,7 @@ const isPrime = n => n < 10 ? [2, 3, 5, 7].includes(n) : ![2, 3, 5, 7].some(d =>
 the given number.*
 
 ```javascript
-const factorial = (n) => n < 2 ? 1 : [...Array(n)].reduce((acc, x, i) => acc * (i + 1), 1);
+const factorial = n => n < 2 ? 1 : [...Array(n)].reduce((acc, x, i) => acc * (i + 1), 1);
 ```
 
 ***
@@ -103,4 +103,36 @@ Number.prototype.plus = function(num = 1) {
   return this + num;
 };
 ```
+
+***
+
+*isSorted - Returns true or false, indicating whether the given array of numbers is sorted*
+
+```javascript
+const isSorted = arr => arr.join('') === [...arr].sort((a, b) => a - b).join('');
+```
+
+***
+
+*filter - Implement the filter function*
+
+```javascript
+const filter = (arr, cb) => {
+  if (!cb) {
+    return arr;
+  }
+
+  const result = [];
+
+  for (let i = 0; i < arr.length; i++) {
+    if (cb(arr[i], i, arr)) {
+      result.push(arr[i]);
+    }
+  }
+
+  return result;
+};
+```
+
+***
 
