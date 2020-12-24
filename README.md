@@ -8,7 +8,9 @@ JS tasks from interviews
 given number is prime.*
 
 ```javascript
-const isPrime = n => n < 10 ? [2, 3, 5, 7].includes(n) : ![2, 3, 5, 7].some(d => !(n % d));
+const isPrime = n => n <= 1 ? false : !Array.from(new Array(n), (el, i) => i + 1)
+  .filter(x => x > 1 && x < n)
+  .find(x => n % x === 0);
 ```
 
 ***
