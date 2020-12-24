@@ -8,5 +8,6 @@ describe('Test `findUnique()` function', () => {
     expect(findUnique(['aBca', 'fO o'])).toBe('fO o');
     expect(findUnique([' aBca '])).toBe(' aBca ');
     expect(findUnique([])).toBeUndefined();
+    expect(findUnique(['aBca', 'ac b', 'bac', 'bca', 'cabaccBA', ' Ccba'])).toBeUndefined();
   });
 });
