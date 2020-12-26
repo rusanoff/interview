@@ -9,3 +9,5 @@ export const fib = (n) => {
 
   return prevNumBeforeLast;
 };
+
+export const fibRec = (n) => n < 2 ? n : fibRec(n - 1) + fibRec(n - 2);
