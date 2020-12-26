@@ -11,5 +11,5 @@ describe('Test `isAnagrams()` function', () => {
     expect(isAnagrams()).toBeFalsy();
     expect(isAnagrams('', 'asd')).toBeFalsy();
     expect(isAnagrams('', '')).toBeFalsy();
-  })
+  });
 });
