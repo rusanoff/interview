@@ -8,6 +8,8 @@ describe('Test `stringCalc()` function', () => {
     expect(stringCalc('10 - 2')).toBe(8);
     expect(stringCalc('10.1 - 2.1')).toBe(8);
     expect(stringCalc('10,1 - 2,1')).toBe(8);
+    expect(stringCalc('10 % 3')).toBe(1);
+    expect(stringCalc('10 % 10')).toBe(0);
   });
 
   it('Should return NaN if argument is not expression', () => {
