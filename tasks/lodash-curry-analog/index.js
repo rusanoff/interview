@@ -1,1 +1,3 @@
-
+export const lodashCarryAnalog = (func) => {
+  // TODO: Code...
+};

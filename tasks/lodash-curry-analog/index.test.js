@@ -1,5 +1,7 @@
-describe('Test `lodashCurryAnalog()` function', () => {
+import { lodashCarryAnalog } from './index';
+
+describe('Test `lodashCarryAnalog()` function', () => {
   it('Should work', () => {
-    expect(true).toBeTruthy();
+    expect(lodashCarryAnalog).toBeDefined();
   });
 });
