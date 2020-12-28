@@ -7,7 +7,12 @@ describe('Test `longestPalindrome()` function', () => {
     expect(longestPalindrome('dbabdd')).toBe('dbabd');
     expect(longestPalindrome('')).toBeUndefined();
     expect(longestPalindrome('abc')).toBeUndefined();
-    // FIXME: It doesnt work
     expect(longestPalindrome('abc abcdcba ')).toBe(' abcdcba ');
+    expect(longestPalindrome('abc abc d cba ')).toBe(' abc d cba ');
+    expect(longestPalindrome('          ')).toBe('          ');
+    expect(longestPalindrome('cccfff')).toBe('ccc');
+    expect(longestPalindrome('cccfff')).toBe('ccc');
+    expect(longestPalindrome('abcabicabbaci')).toBe('icabbaci');
+    expect(longestPalindrome('1233210')).toBe('123321');
   });
 });

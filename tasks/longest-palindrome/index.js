@@ -3,31 +3,21 @@ export const longestPalindrome = (str) => {
     return undefined;
   }
 
+  const substrings = [];
   const isPalindrome = (subStr) => {
-    const strWithoutBreaks = subStr.toLowerCase().replace(/[^а-яa-z]/g, '');
+    const strWithoutBreaks = subStr.toLowerCase();
 
     return strWithoutBreaks === strWithoutBreaks.split('').reverse().join('');
   };
-  const palindromes = [];
 
-  for (let i = 0, { length } = str; i < length - 1; i++) {
-    let strPalindrome = str[i];
+  for (let i = 0, { length } = str; i < length; i++) {
+    let substr = str[i];
 
-    for (let j = i + 1; j < length - 1; j++) {
-      strPalindrome += str[j];
-
-      if (isPalindrome(strPalindrome)) {
-        palindromes.push(strPalindrome);
-      }
+    for (let j = i + 1, { length: length2 } = str; j < length2; j++) {
+      substr += str[j];
+      substrings.push(substr);
     }
   }
 
-  if (!palindromes.length) {
-    return undefined;
-  }
-
-  const sortedPalindromes = [...new Set(palindromes)].sort();
-  const { length } = sortedPalindromes;
-
-  return sortedPalindromes[length - 1];
+  return substrings.filter(isPalindrome).find((item, i, arr) => arr.every(x => item.length >= x.length));
 };
