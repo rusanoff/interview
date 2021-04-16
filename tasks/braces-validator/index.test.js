@@ -9,6 +9,7 @@ describe('Test `validateBrackets()` function', () => {
     expect(validateBraces('({([({({[[[()]]]})})])})')).toBeTruthy();
   });
   it('Should be falsy', () => {
+    expect(validateBraces('')).toBeFalsy();
     expect(validateBraces('(]')).toBeFalsy();
     expect(validateBraces('{]')).toBeFalsy();
     expect(validateBraces('{)')).toBeFalsy();

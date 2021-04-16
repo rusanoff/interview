@@ -1,5 +1,5 @@
 export const validateBraces = (str) => {
-  if (str.length % 2) {
+  if (!str || str.length % 2) {
     return false;
   }
 
