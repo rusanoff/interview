@@ -532,3 +532,52 @@ const fuzzySearch = (substr, str) => {
   return iterationCounter === substr.length;
 };
 ```
+
+***
+
+*Задача на каррирование. Сделать следующий код рабочим:*
+
+```javascript
+const data = [
+    { id: 1, name: 'John', surname: 'Doe', age: 34 },
+    { id: 2, name: 'John', surname: 'Smith', age: 35 },
+    { id: 3, name: 'John', surname: 'Doe', age: 33 },
+    { id: 4, name: 'John', surname: 'Doe', age: 35 },
+    { id: 5, name: 'Mike', surname: 'Doe', age: 35 },
+];
+
+const ids = query(
+  where({ name: 'John' }),
+  where({ surname: 'Doe' }),
+  order('age'),
+)(data).map((u) => u.id);
+
+console.log(ids); // [3, 1, 4] 
+```
+
+__Решение:__
+
+```javascript
+function query(...args) {
+  return (data) => {
+    let result = [...data];
+
+    for (let i = 0, {length} = args; i < length; i++) {
+      result = args[i](result);
+    }
+
+    return result;
+  };
+}
+
+function where(obj) {
+  const objProps = Object.keys(obj);
+
+  return data => data.filter(item => objProps.every(objProp => obj[objProp] === item[objProp]));
+}
+
+function order(propName) {
+  return data => [...data].sort((a, b) => a[propName] - b[propName]);
+}
+
+```
